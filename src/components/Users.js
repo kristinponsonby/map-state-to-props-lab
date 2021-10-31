@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
 class Users extends Component {
 
   render() {
@@ -7,7 +8,7 @@ class Users extends Component {
 
     return (
       <div>
-        {this.props.count}
+        {this.props.numberOfUsers}
         <ul>
           {users}
         </ul>
@@ -16,11 +17,11 @@ class Users extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
-  return { users: state.username,
-  count: state.users.length };
+  return {
+    users: state.users,
+    numberOfUsers: state.users.length
+  };
 };
 
-export default connect(mapStateToProps)(Users);
-
+export default connect(mapStateToProps)(Users)
